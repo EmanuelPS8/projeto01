@@ -16,4 +16,3 @@ router.use('/servicos', servicosRoutes);
 router.use('/tipos-roupa', tiposRoupaRoutes);
 
 module.exports = router;
-
