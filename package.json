@@ -16,5 +16,8 @@
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^5.0.1",
     "uuid": "^14.0.0"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "type": "commonjs"
   }
-}
