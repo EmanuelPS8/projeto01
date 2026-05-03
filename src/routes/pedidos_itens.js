@@ -18,12 +18,103 @@ function savePedidosItens() {
   fs.writeFileSync('./src/db/pedidos_itens.json', JSON.stringify(pedidosItensDB, null, 2));
 }
 
+/**
+ * @swagger
+ * components:
+ *   schemas:
+ *     PedidoItens:
+ *       type: object
+ *       required:
+ *         - pedido_id
+ *         - tipo_roupa_id
+ *         - quantidade
+ *         - descricao
+ *         - status
+ *         - valor_total
+ *       properties:
+ *         id:
+ *           type: string
+ *           description: ID auto-gerado (UUID) do pedido item
+ *         pedido_id:
+ *           type: string
+ *           description: ID do pedido
+ *         tipo_roupa_id:
+ *           type: string
+ *           description: ID do tipo de roupa
+ *         quantidade:
+ *           type: integer
+ *           description: Quantidade do tipo de roupa
+ *         descricao:
+ *           type: string
+ *           description: Descrição do pedido item
+ *         status:
+ *           type: string
+ *           description: Status do pedido item
+ *         valor_total:
+ *           type: number
+ *           description: Valor total do pedido item
+ *       example:
+ *         id: "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+ *         pedido_id: "pedido-123"
+ *         tipo_roupa_id: "roupa-123"
+ *         quantidade: 1
+ *         descricao: "Descrição do pedido item"
+ *         status: "pendente"
+ *         valor_total: 10.00
+ */
+
+/**
+ * @swagger
+ * tags:
+ *   name: Pedidos Itens
+ *   description: Gerenciamento de pedidos itens
+ */
+
+/**
+ * @swagger
+ * /pedidos_itens:
+ *   get:
+ *     summary: Retorna todos os pedidos itens
+ *     tags: [Pedidos Itens]
+ *     responses:
+ *       200:
+ *         description: Lista de todos os pedidos itens
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/PedidoItens'
+ */
 //get
 router.get('/', (req, res) => {
   pedidosItensDB = loadPedidosItens();
   return res.json(pedidosItensDB);
 });
 
+/**
+ * @swagger
+ * /pedidos_itens/{id}:
+ *   get:
+ *     summary: Retorna um pedido item pelo ID
+ *     tags: [Pedidos Itens]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID do pedido item
+ *     responses:
+ *       200:
+ *         description: Um pedido item pelo ID
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/PedidoItens'
+ *       404:
+ *         description: Pedido item não encontrado
+ */
 //get by id
 router.get('/:id', (req, res) => {
   pedidosItensDB = loadPedidosItens();
@@ -34,6 +125,26 @@ router.get('/:id', (req, res) => {
   return res.json(pedidoItem);
 });
 
+/**
+ * @swagger
+ * /pedidos_itens:
+ *   post:
+ *     summary: Cria um novo pedido item
+ *     tags: [Pedidos Itens]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/PedidoItens'
+ *     responses:
+ *       201:
+ *         description: Pedido item criado com sucesso
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/PedidoItens'
+ */
 //post
 router.post('/', (req, res) => {
   pedidosItensDB = loadPedidosItens();
@@ -44,6 +155,35 @@ router.post('/', (req, res) => {
   return res.status(201).json(pedidoItem);
 });
 
+/**
+ * @swagger
+ * /pedidos_itens/{id}:
+ *   put:
+ *     summary: Atualiza um pedido item pelo ID
+ *     tags: [Pedidos Itens]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID do pedido item
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             $ref: '#/components/schemas/PedidoItens'
+ *     responses:
+ *       200:
+ *         description: Pedido item atualizado com sucesso
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/PedidoItens'
+ *       404:
+ *         description: Pedido item não encontrado
+ */
 //put
 router.put('/:id', (req, res) => {
   pedidosItensDB = loadPedidosItens();
@@ -57,6 +197,25 @@ router.put('/:id', (req, res) => {
   return res.json(pedidosItensDB[index]);
 });
 
+/**
+ * @swagger
+ * /pedidos_itens/{id}:
+ *   delete:
+ *     summary: Remove um pedido item pelo ID
+ *     tags: [Pedidos Itens]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: ID do pedido item
+ *     responses:
+ *       200:
+ *         description: Pedido item removido com sucesso
+ *       404:
+ *         description: Pedido item não encontrado
+ */
 //delete
 router.delete('/:id', (req, res) => {
   pedidosItensDB = loadPedidosItens();

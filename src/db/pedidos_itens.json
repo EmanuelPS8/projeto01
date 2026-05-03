@@ -7,5 +7,14 @@
     "descricao": "text",
     "status": "varchar",
     "valor_total": "decimal"
+  },
+  {
+    "id": "9299e8ab-255e-4271-a167-1d2461e1f8f5",
+    "pedido_id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "tipo_roupa_id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+    "quantidade": 10,
+    "descricao": "Descrição do item de pedido",
+    "status": "pendente",
+    "valor_total": 255
   }
 ]
