@@ -7,6 +7,7 @@ const pedidoItemServicosRoutes = require('./pedido_item_servicos');
 const servicosRoutes = require('./servicos');
 const tiposRoupaRoutes = require('./tipos_roupa');
 const pedidosRoutes = require('./pedidos');
+const usuarioRoutes = require('./usuarios');
 
 router.use('/pedidos', pedidosRoutes);
 router.use('/clientes', clienteRoutes);
@@ -14,5 +15,6 @@ router.use('/pedidos-itens', pedidosItensRoutes);
 router.use('/pedido-item-servicos', pedidoItemServicosRoutes);
 router.use('/servicos', servicosRoutes);
 router.use('/tipos-roupa', tiposRoupaRoutes);
+router.use('/usuarios', usuarioRoutes);
 
 module.exports = router;
