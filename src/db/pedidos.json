@@ -1,0 +1,13 @@
+[
+  {
+    "id": "uuid",
+    "cliente_id": "uuid",
+    "usuario_id": "uuid",
+    "status": "varchar",
+    "data_entrada": "timestamp",
+    "data_prevista": "timestamp",
+    "data_saida": "timestamp",
+    "valor_total": "decimal",
+    "observacoes": "text"
+  }
+]

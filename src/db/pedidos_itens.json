@@ -1,0 +1,11 @@
+[
+  {
+    "id": "uuid",
+    "pedido_id": "uuid",
+    "tipo_roupa_id": "uuid",
+    "quantidade": "int",
+    "descricao": "text",
+    "status": "varchar",
+    "valor_total": "decimal"
+  }
+]

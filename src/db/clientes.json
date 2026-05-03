@@ -1,0 +1,20 @@
+[
+  {
+    "id": "uuid",
+    "nome": "varchar",
+    "telefone": "varchar",
+    "email": "varchar",
+    "cpf_cnpj": "varchar",
+    "observacoes": "text",
+    "created_at": "timestamp",
+    "updated_at": "timestamp"
+  },
+  {
+    "id": "03b10de4-6862-4c2b-b7f0-953f9bfec0ae",
+    "nome": "João da Silva",
+    "telefone": "(48) 99999-0000",
+    "email": "joao@email.com",
+    "cpf_cnpj": "123.456.789-00",
+    "observacoes": "Cliente novo"
+  }
+]

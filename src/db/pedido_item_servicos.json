@@ -1,0 +1,10 @@
+[
+  {
+    "id": "uuid",
+    "pedido_item_id": "uuid",
+    "servico_id": "uuid",
+    "preco_unitario": "decimal",
+    "quantidade": "int",
+    "valor_total": "decimal"
+  }
+]
